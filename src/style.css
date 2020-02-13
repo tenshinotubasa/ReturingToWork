@@ -1,0 +1,89 @@
+*{
+    font-family:"Times New Roman", Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 100%;
+}
+
+/* 文本信息 */
+
+.title0{
+    display: block;
+    color: rgb(237,239,241);
+    font-size: 1.6em;
+    text-align: center;
+    margin: 90px auto 60px auto;
+    font-weight: bold;
+}
+
+.title1{
+    display: block;
+    color: rgb(69, 81, 200);
+    font-size: 2em;
+}
+
+.title2{
+    font-size: 0.8em;
+}
+
+.text-name{
+    text-align: left;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.text-desc{
+    color: rgb(121,121,121);
+}
+
+.text-mark{
+    color:rgb(214,214,214);
+}
+
+/* 边框信息 */
+.back{
+    width:480px;
+    background-color: rgb(51,58,148);
+    border: 1px solid transparent;
+    margin: auto;
+}
+
+.content{
+    background-color: white;
+    width:440px;
+    left: 20px;
+    text-align: center;
+    border-radius: 10px;
+    /* padding: 22px 20px 20px 20px; */
+    margin: 0 20px 70px 20px;
+}
+
+.star{
+    color: red;
+    font-size: 1.3em;
+}
+
+.edit{
+    border: 1px solid rgb(228, 228, 228);
+    padding: 10px;
+}
+
+.infoItem{
+    text-align: left;
+    /* margin: 20px; */
+}
+
+.SubmitBtn{
+    height:65px;
+    color: white;
+    background-color: rgb(71, 82, 200);
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 20px 0px 40px 0px;
+}
