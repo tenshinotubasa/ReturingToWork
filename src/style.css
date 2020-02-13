@@ -20,13 +20,17 @@ body{
 }
 
 .title1{
-    display: block;
     color: rgb(69, 81, 200);
-    font-size: 2em;
+    font-size: 1.6em;
+    text-align: left;
+    font-weight: bold;
 }
 
 .title2{
-    font-size: 0.8em;
+    color: rgb(69, 81, 200);
+    font-size: 1.4em;
+    text-align: left;
+    font-weight: bold;
 }
 
 .text-name{
@@ -38,6 +42,14 @@ body{
 
 .text-desc{
     color: rgb(121,121,121);
+}
+
+.text-desc1{
+    color: rgb(115, 115, 115);
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.2em;
+    margin: 10px 0 0 0;
 }
 
 .text-mark{
@@ -54,7 +66,6 @@ body{
 
 .content{
     background-color: white;
-    left: 20px;
     text-align: center;
     border-radius: 10px;
     padding: 22px 20px 20px 20px;
@@ -67,13 +78,16 @@ body{
 }
 
 .edit{
+    font-size: 1.2em;
     border: 1px solid rgb(228, 228, 228);
-    padding: 10px;
+    padding: 15px;
+    width: calc(100% - 30px);    
 }
 
 .infoItem{
     text-align: left;
-    /* margin: 20px; */
+    line-height: 2.2em;
+    margin: 40px 0px;
 }
 
 .SubmitBtn{
@@ -85,4 +99,10 @@ body{
     font-size: 1.5em;
     font-weight: bold;
     margin: 20px 0px 40px 0px;
+}
+
+.split_line{
+    height: 0px;
+    border: 1px solid rgb(70, 81, 199);
+    margin: 5px 0px;
 }

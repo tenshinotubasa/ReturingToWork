@@ -8,14 +8,21 @@ class InfoName extends Component {
         return ( 
             <div>
                 <span className="text-name">{this.props.Name}</span>
-                <span className='star'><sup>*</sup></span>
+                
+                {
+                    this.props.IsNeccessary ? <span className='star'><sup>*</sup></span> : null
+                }
             </div>
          );
     }
 }
 
 InfoName.propTypes={
-    Name:PropTypes.string
+    Name:PropTypes.string,
+    IsNeccessary:PropTypes.bool
 }
  
+InfoName.defaultProps={
+    IsNeccessary:true
+}
 export default InfoName;
