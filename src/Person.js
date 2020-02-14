@@ -14,7 +14,7 @@ class Person extends Component {
                 <InfoItem Name="部门" Tip="例如：质检部"/>
                 <InfoItem Name="手机号" />
                 <InfoItem Name="现居住地址" />
-                <InfoItem Name="当前所在位置" />
+                <InfoItem Name="当前所在位置" IsMultText={true}/>
             </div>
          );
     }

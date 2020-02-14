@@ -18,7 +18,7 @@ class InfoName extends Component {
 }
 
 InfoName.propTypes={
-    Name:PropTypes.string,
+    Name:PropTypes.string.isRequired,
     IsNeccessary:PropTypes.bool
 }
  

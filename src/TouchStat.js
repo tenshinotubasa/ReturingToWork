@@ -12,7 +12,7 @@ class TouchStat extends Component {
             <div>
                 <p className="title2">疫情接触情况统计</p>
                 <hr className="split_line"></hr>
-                <InfoItem Name="其他接触情况说明" Tip="如存在疫情接触可能或身体不适，请详细说明"/>
+                <InfoItem Name="其他接触情况说明" Tip="如存在疫情接触可能或身体不适，请详细说明" IsNeccessary={false} IsMultText={true}/>
             </div>
          );
     }

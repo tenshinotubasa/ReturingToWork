@@ -84,6 +84,14 @@ body{
     width: calc(100% - 30px);    
 }
 
+textarea{
+    height:80px;
+    font-size: 1.2em;
+    border: 1px solid rgb(228, 228, 228);
+    padding: 15px;
+    width: calc(100% - 30px);  
+}
+
 .infoItem{
     text-align: left;
     line-height: 2.2em;
