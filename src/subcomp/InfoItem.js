@@ -7,7 +7,8 @@ class InfoItem extends Component {
     
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {};
+        this.onChange = this.onChange.bind(this);
     }
 
     render() { 
@@ -19,12 +20,18 @@ class InfoItem extends Component {
                 }
                 {
                     this.props.IsMultText ?
-                        <textarea placeholder={this.props.Mark}></textarea>: 
-                        <input className="edit" placeholder={this.props.Mark}></input> 
+                        <textarea name={this.props.Key} onChange={this.onChange}  placeholder={this.props.Mark}></textarea>: 
+                        <input name={this.props.Key} onChange={this.onChange} className="edit" placeholder={this.props.Mark}></input> 
                 }
                 
             </div>
          );
+    }
+
+    onChange(item){
+        if (this.props.updateData){
+            this.props.updateData(this.props.Key, item.target.value)
+        }
     }
 }
 
@@ -33,7 +40,9 @@ InfoItem.propTypes={
     Tip:PropTypes.string,
     Mark:PropTypes.string,
     IsNeccessary:PropTypes.bool,
-    IsMultText:PropTypes.bool
+    IsMultText:PropTypes.bool,
+    updateData:PropTypes.func,
+    Key:PropTypes.string.isRequired
 }
 
 InfoItem.defaultProps={
