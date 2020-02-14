@@ -43,7 +43,6 @@ class InfoItem extends Component {
     }
 
     onChange(item){
-        console.log(item.target.value)
         this.setState({Value:item.target.value},
                       ()=>{this.props.updateData(this.props.Key, this.state.Value)})
     }
