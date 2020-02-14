@@ -14,11 +14,11 @@ class BackStat extends Component {
         this.state = {
             Back_Date:"",
             Transport:"",
-            Via_WH:false,
+            Via_WH:"",
             Other:""
         }
         this.updateValue = this.updateValue.bind(this)
-        this.onDateChange = this.onDateChange.bind(this)
+        this.onChange = this.onChange.bind(this)
     }
     
     shouldComponentUpdate(nextProps, nextState){
@@ -35,7 +35,7 @@ class BackStat extends Component {
                 <hr className="split_line"></hr>
                 <div className="infoItem">
                     <InfoName Name="计划返程日期"/>
-                    <input name={Constant.BI_Date} className='edit' type="date" onChange={this.onDateChange}></input>
+                    <input name={Constant.BI_Date} className='edit' type="date" onChange={this.onChange}></input>
                 </div>
                 <InfoItem
                     Name="拟乘坐交通工具"
@@ -43,6 +43,11 @@ class BackStat extends Component {
                     Key={Constant.BI_Transport}
                     updateData={this.updateValue}
                 />
+                <div className="infoItem">
+                    <InfoName Name="是否途径、中转武汉?"/>
+                    <label><input name={Constant.BI_Via_WH} type="radio" onChange={this.onChange} value="是"></input> 是</label>
+                    <label><input name={Constant.BI_Via_WH}  type="radio" onChange={this.onChange} value="否"></input> 否</label>
+                </div>
                 <InfoItem 
                     Name="其他情况说明" 
                     Tip="如有其他情况或需要协助，请在下方补充" 
@@ -75,15 +80,22 @@ class BackStat extends Component {
 
     /// @brief 数据有效性检验
     checkValid(){
-        return this.state.Back_Date != null &&
+        return this.state.Back_Date.length > 0 &&
                this.state.Transport.length > 0 &&
-               (this.state.Via_WH === true ||
-                this.state.Via_WH === false);
+               (this.state.Via_WH === "是" ||
+                this.state.Via_WH === "否");
     }
     
-    /// @brief 日期更新
-    onDateChange(item){
-        this.setState({Back_Date:item.target.value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())})
+    /// @brief 数据更新
+    onChange(item){
+        if (item.target.name === Constant.BI_Via_WH)
+        {
+            this.setState({Via_WH:item.target.value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())})
+        }
+        else if (item.target.name === Constant.BI_Date)
+        {
+            this.setState({Back_Date:item.target.value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())})
+        }
     }
 }
  
