@@ -12,6 +12,18 @@ class MulSelItem extends Component {
         this.onChange = this.onChange.bind(this)
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+        if (nextProps.Name !== this.props.Name ||
+            nextProps.List !== this.props.List ||
+            nextProps.IsNeccessary !== this.props.IsNeccessary ||
+            nextProps.updateData !== this.props.updateData ||
+            nextProps.Key !== this.props.Key ||
+            nextState.CheckedList !== this.state.CheckedList){
+            return true;
+        }
+        return false;
+    }
+
     render() { 
         return ( 
             <div className="infoItem">

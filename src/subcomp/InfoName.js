@@ -4,6 +4,11 @@ import '../style.css'
 
 class InfoName extends Component {
     state = {  }
+    
+    shouldComponentUpdate(nextProps, nextState){
+        return false;
+    }
+
     render() { 
         return ( 
             <div className="infoName">

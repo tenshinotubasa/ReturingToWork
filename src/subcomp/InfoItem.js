@@ -7,8 +7,22 @@ class InfoItem extends Component {
     
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {Value:""};
         this.onChange = this.onChange.bind(this);
+    }
+    
+    shouldComponentUpdate(nextProps, nextState){
+        if (nextProps.Name !== this.props.Name ||
+            nextProps.Tip !== this.props.Tip ||
+            nextProps.Mark !== this.props.Mark ||
+            nextProps.IsNeccessary !== this.props.IsNeccessary ||
+            nextProps.IsMultText !== this.props.IsMultText ||
+            nextProps.updateData !== this.props.updateData ||
+            nextProps.Key !== this.props.Key ||
+            nextState.Value !== this.state.Value){
+            return true;
+        }
+        return false;
     }
 
     render() { 
@@ -20,8 +34,8 @@ class InfoItem extends Component {
                 }
                 {
                     this.props.IsMultText ?
-                        <textarea name={this.props.Key} onChange={this.onChange}  placeholder={this.props.Mark}></textarea>: 
-                        <input name={this.props.Key} onChange={this.onChange} className="edit" placeholder={this.props.Mark}></input> 
+                        <textarea name={this.props.Key} onChange={this.onChange}  placeholder={this.props.Mark} value={this.state.Value}></textarea>: 
+                        <input name={this.props.Key} onChange={this.onChange} className="edit" placeholder={this.props.Mark} value={this.state.Value}></input> 
                 }
                 
             </div>
@@ -29,9 +43,9 @@ class InfoItem extends Component {
     }
 
     onChange(item){
-        if (this.props.updateData){
-            this.props.updateData(this.props.Key, item.target.value)
-        }
+        console.log(item.target.value)
+        this.setState({Value:item.target.value},
+                      ()=>{this.props.updateData(this.props.Key, this.state.Value)})
     }
 }
 
