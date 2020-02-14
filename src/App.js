@@ -60,7 +60,7 @@ class App extends Component {
 
     /// < 检查数据合法性
     checkData(){
-        return this.state.p_status;// && this.state.t_status && this.state.b_status;
+        return this.state.p_status && this.state.t_status && this.state.b_status;
     }
 
     /// < 提交按钮响应
