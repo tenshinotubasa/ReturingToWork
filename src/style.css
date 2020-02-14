@@ -84,6 +84,14 @@ body{
     width: calc(100% - 30px);    
 }
 
+label{
+    display: block;
+    font-size: 1.2em;
+    border: 1px solid rgb(228, 228, 228);
+    padding: 12px;
+    margin: 10px 0px;
+}
+
 textarea{
     height:80px;
     font-size: 1.2em;
@@ -96,6 +104,10 @@ textarea{
     text-align: left;
     line-height: 2.2em;
     margin: 40px 0px;
+}
+
+.infoName{
+    text-align: left;
 }
 
 .SubmitBtn{

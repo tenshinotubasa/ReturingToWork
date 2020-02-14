@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InfoName from './InfoItem'
+import InfoName from './InfoName'
 import PropTypes from 'prop-types'
 import '../style.css'
 
@@ -12,9 +12,21 @@ class MulSelItem extends Component {
         return ( 
             <div className="infoItem">
                 <InfoName Name={this.props.Name} IsNeccessary={this.props.IsNeccessary} />
-                
+                {this.props.List.map((item, index) => {
+                    return (
+                    <label
+                        key={index + item} 
+                    >
+                        <input name="1" value={item}
+                            key={index + item} 
+                            type="checkbox" 
+                        />
+                        {item}<br></br>
+                    </label>
+                    );
+                })}     
             </div>
-         );
+        );
     }
 }
 

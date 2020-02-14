@@ -6,7 +6,7 @@ class InfoName extends Component {
     state = {  }
     render() { 
         return ( 
-            <div>
+            <div className="infoName">
                 <span className="text-name">{this.props.Name}</span>
                 
                 {
