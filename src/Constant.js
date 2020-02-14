@@ -16,7 +16,7 @@ class Constant {
 
     // 接触史标签
     static TH_Touch = "touch";
-    static TH_health = "health";
+    static TH_Health = "health";
     static TH_Other = "other";
 
     // 返回情况

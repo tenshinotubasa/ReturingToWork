@@ -6,8 +6,12 @@ import '../style.css'
 class MulSelItem extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            CheckedList:[]
+         }
+        this.onChange = this.onChange.bind(this)
     }
+
     render() { 
         return ( 
             <div className="infoItem">
@@ -17,9 +21,12 @@ class MulSelItem extends Component {
                     <label
                         key={index + item} 
                     >
-                        <input name="1" value={item}
+                        <input
+                            name={this.props.Key}
+                            value={item}
                             key={index + item} 
                             type="checkbox" 
+                            onChange={this.onChange}
                         />
                         {item}<br></br>
                     </label>
@@ -28,12 +35,29 @@ class MulSelItem extends Component {
             </div>
         );
     }
+
+    onChange(item){
+        if (this.props.updateData){
+            let list = this.state.CheckedList;
+
+            let pos = list.indexOf(item.target.value);
+            if (pos === -1){
+                list.push(item.target.value);
+            }
+            else{
+                list.splice(pos, 1);
+            }
+            this.setState({CheckedList:list}, ()=>{this.props.updateData(this.props.Key, this.state.CheckedList)})
+        }
+    }
 }
 
 MulSelItem.propTypes={
     Name:PropTypes.string.isRequired,
     List:PropTypes.array.isRequired,
-    IsNeccessary:PropTypes.bool
+    IsNeccessary:PropTypes.bool,
+    updateData:PropTypes.func,
+    Key:PropTypes.string.isRequired
 }
 
 MulSelItem.defaultProps={

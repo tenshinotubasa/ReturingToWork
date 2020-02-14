@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './style.css'
 import InfoItem from './subcomp/InfoItem'
 import MulSelItem from './subcomp/MulSelItem'
+import Constant from './Constant'
 
+/**!
+ * @brief 疫情接触情况组件
+ */
 class TouchStat extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            Touch_Hist:[],
+            Health:[],
+            Other:""
+        }
+        this.updateValue = this.updateValue.bind(this)
     }
+
+    /// < 渲染数据
     render() { 
         return ( 
             <div>
@@ -20,6 +32,8 @@ class TouchStat extends Component {
                                    '本人或亲属接触过来自武汉或湖北其他地区的亲友',
                                    '本人或亲属乘坐过飞机、火车等长途交通工具',
                                    '以上接触均无']}
+                            Key={Constant.TH_Touch}
+                            updateData={this.updateValue}
                 />
                 <MulSelItem Name="假期身体健康情况"
                             List={['咳嗽',
@@ -28,11 +42,44 @@ class TouchStat extends Component {
                                    '呼吸困难',
                                    '其他不适症状',
                                    '无任何不适']}
+                            Key={Constant.TH_Health}
+                            updateData={this.updateValue}
                 />
-                <InfoItem Name="其他接触情况说明" Tip="如存在疫情接触可能或身体不适，请详细说明" IsNeccessary={false} IsMultText={true}/>
+                <InfoItem Name="其他接触情况说明"
+                          Tip="如存在疫情接触可能或身体不适，请详细说明" 
+                          IsNeccessary={false} 
+                          IsMultText={true} 
+                          Key={Constant.TH_Other}
+                          updateData={this.updateValue}
+                />
             </div>
          );
     }
+    
+    /// @brief 数据更新接口，用于子组件通知更新
+    /// @param name:数据Key, value:数据值
+    updateValue(name, value){
+
+        if (name === Constant.TH_Touch){
+            this.setState({Touch_Hist:value}, ()=>{this.props.setData(Constant.Touch_Hist, this.state,this.checkValid())});
+        }
+        else if(name === Constant.TH_Health){
+            this.setState({Health:value}, ()=>{this.props.setData(Constant.Touch_Hist, this.state,this.checkValid())});
+        }
+        else if(name === Constant.TH_Other){
+            this.setState({Other:value}, ()=>{this.props.setData(Constant.Touch_Hist, this.state,this.checkValid())});
+        }
+    }
+
+    /// @brief 数据有效性检验
+    checkValid(){
+        return this.state.Touch_Hist.length > 0 &&
+               this.state.Health.length > 0;
+    }
 }
- 
+
+TouchStat.propTypes = {
+    setData:PropTypes.func.isRequired
+}
+
 export default TouchStat;
