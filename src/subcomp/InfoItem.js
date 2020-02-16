@@ -15,12 +15,12 @@ class InfoItem extends Component {
             <div className="infoItem">
                 <InfoName  name={this.props.name} isNeccessary={this.props.isNeccessary} />
                 {
-                    this.props.Tip ? <div className="text-desc1">{this.props.Tip}</div> : null
+                    this.props.tip ? <div className="text-desc1">{this.props.tip}</div> : null
                 }
                 {
                     this.props.IsMultText ?
-                        <textarea name={this.props.Key} onChange={this.onChange}  placeholder={this.props.Mark} value={this.state.Value}></textarea>: 
-                        <input name={this.props.Key} onChange={this.onChange} className="edit" placeholder={this.props.Mark} value={this.state.Value}></input> 
+                        <textarea name={this.props.Key} onChange={this.onChange}  placeholder={this.props.mark} value={this.state.Value}></textarea>: 
+                        <input name={this.props.Key} onChange={this.onChange} className="edit" placeholder={this.props.mark} value={this.state.Value}></input> 
                 }
                 
             </div>
@@ -35,8 +35,8 @@ class InfoItem extends Component {
 
 InfoItem.propTypes={
     name:PropTypes.string.isRequired,
-    Tip:PropTypes.string,
-    Mark:PropTypes.string,
+    tip:PropTypes.string,
+    mark:PropTypes.string,
     isNeccessary:PropTypes.bool,
     IsMultText:PropTypes.bool,
     updateData:PropTypes.func,
@@ -44,7 +44,7 @@ InfoItem.propTypes={
 }
 
 InfoItem.defaultProps={
-    Mark:'请输入',
+    mark:'请输入',
     isNeccessary:true,
     IsMultText:false
 }

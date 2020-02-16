@@ -31,7 +31,7 @@ class BackStat extends Component {
                 </div>
                 <InfoItem
                     name="拟乘坐交通工具"
-                    Tip='若自驾，请填写 "自驾" ; 如已订票，请准确到班次'
+                    tip='若自驾，请填写 "自驾" ; 如已订票，请准确到班次'
                     Key={BI_Transport}
                     updateData={this.updateValue}
                 />
@@ -42,7 +42,7 @@ class BackStat extends Component {
                 </div>
                 <InfoItem 
                     name="其他情况说明" 
-                    Tip="如有其他情况或需要协助，请在下方补充" 
+                    tip="如有其他情况或需要协助，请在下方补充" 
                     isNeccessary={false} 
                     IsMultText={true}
                     Key={BI_Other}

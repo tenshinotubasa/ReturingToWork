@@ -24,7 +24,7 @@ class Person extends Component {
         return ( 
             <div >
                 <InfoItem name="姓名" Key={PI_Name} updateData={this.updateValue} />
-                <InfoItem name="部门" Tip="例如：质检部" Key={PI_Depart} updateData={this.updateValue} />
+                <InfoItem name="部门" tip="例如：质检部" Key={PI_Depart} updateData={this.updateValue} />
                 <InfoItem name="手机号"  Key={PI_Phone} updateData={this.updateValue} />
                 <InfoItem name="现居住地址"  Key={PI_Addr} updateData={this.updateValue} />
                 <InfoItem name="当前所在位置" IsMultText={true} Key={PI_Pos} updateData={this.updateValue} />

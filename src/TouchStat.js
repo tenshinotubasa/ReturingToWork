@@ -45,7 +45,7 @@ class TouchStat extends Component {
                             updateData={this.updateValue}
                 />
                 <InfoItem name="其他接触情况说明"
-                          Tip="如存在疫情接触可能或身体不适，请详细说明" 
+                          tip="如存在疫情接触可能或身体不适，请详细说明" 
                           isNeccessary={false} 
                           IsMultText={true} 
                           Key={TH_Other}
