@@ -11,12 +11,12 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state={
-            Personal_Info:null,
-            p_status:false,
-            Touch_Hist:null,
-            t_status:false,
-            Back_Info:null,
-            b_status:false
+            personalInf:null,
+            pStatus:false,
+            touchHist:null,
+            tStatus:false,
+            backInfo:null,
+            bStatus:false
         }
         this.setData = this.setData.bind(this)
         this.OnSubmit = this.OnSubmit.bind(this)
@@ -48,19 +48,19 @@ class App extends Component {
     // @param status bool-数据状态
     setData(name, value, status){
         if (name===Personal_Info){
-            this.setState({Personal_Info:value, p_status:status})
+            this.setState({personalInf:value, pStatus:status})
         }
         else if (name===Touch_Hist){
-            this.setState({Touch_Hist:value, t_status:status})
+            this.setState({touchHist:value, tStatus:status})
         }
         else if (name===Back_Infos){
-            this.setState({Back_Info:value, b_status:status})
+            this.setState({backInfo:value, bStatus:status})
         }
     }
 
     /// < 检查数据合法性
     checkData(){
-        return this.state.p_status && this.state.t_status && this.state.b_status;
+        return this.state.pStatus && this.state.tStatus && this.state.bStatus;
     }
 
     /// < 提交按钮响应
@@ -73,9 +73,9 @@ class App extends Component {
 
     /// < 提交数据
     submitData(){
-        console.log(this.state.Personal_Info)
-        console.log(this.state.Touch_Hist)
-        console.log(this.state.Back_Info)
+        console.log(this.state.personalInf)
+        console.log(this.state.touchHist)
+        console.log(this.state.backInfo)
     }
 }
 

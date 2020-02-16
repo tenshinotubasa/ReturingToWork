@@ -11,10 +11,10 @@ class Person extends Component {
         super(props);
         this.state = {
             name:"",
-            Depart:"",
-            PhoneNum:"",
-            Addr:"",
-            Pos:""
+            depart:"",
+            phoneNum:"",
+            addr:"",
+            pos:""
         };
         this.updateValue = this.updateValue.bind(this);
     }
@@ -40,26 +40,26 @@ class Person extends Component {
             this.setState({name:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
         }
         else if(name === PI_Depart){
-            this.setState({Depart:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({depart:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
         }
         else if(name === PI_Phone){
-            this.setState({PhoneNum:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({phoneNum:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
         }
         else if(name === PI_Addr){
-            this.setState({Addr:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({addr:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
         }
         else if(name === PI_Pos){
-            this.setState({Pos:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({pos:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
         }
     }
 
     /// @brief 数据有效性检验
     checkValid(){
         return this.state.name.length > 0 &&
-               this.state.Depart.length > 0 &&
-               this.state.PhoneNum.length > 0 &&
-               this.state.Addr.length > 0 &&
-               this.state.Pos.length > 0;
+               this.state.depart.length > 0 &&
+               this.state.phoneNum.length > 0 &&
+               this.state.addr.length > 0 &&
+               this.state.pos.length > 0;
     }
 }
 
