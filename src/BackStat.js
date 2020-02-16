@@ -26,22 +26,22 @@ class BackStat extends Component {
                 <p className="title2">返程情况统计</p>
                 <hr className="split_line"></hr>
                 <div className="infoItem">
-                    <InfoName Name="计划返程日期"/>
+                    <InfoName name="计划返程日期"/>
                     <input name={BI_Date} className='edit' type="date" onChange={this.onChange}></input>
                 </div>
                 <InfoItem
-                    Name="拟乘坐交通工具"
+                    name="拟乘坐交通工具"
                     Tip='若自驾，请填写 "自驾" ; 如已订票，请准确到班次'
                     Key={BI_Transport}
                     updateData={this.updateValue}
                 />
                 <div className="infoItem">
-                    <InfoName Name="是否途径、中转武汉?"/>
+                    <InfoName name="是否途径、中转武汉?"/>
                     <label><input name={BI_Via_WH} type="radio" onChange={this.onChange} value="是"></input> 是</label>
                     <label><input name={BI_Via_WH}  type="radio" onChange={this.onChange} value="否"></input> 否</label>
                 </div>
                 <InfoItem 
-                    Name="其他情况说明" 
+                    name="其他情况说明" 
                     Tip="如有其他情况或需要协助，请在下方补充" 
                     isNeccessary={false} 
                     IsMultText={true}

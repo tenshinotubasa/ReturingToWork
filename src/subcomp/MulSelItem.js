@@ -14,7 +14,7 @@ class MulSelItem extends Component {
     render() { 
         return ( 
             <div className="infoItem">
-                <InfoName Name={this.props.Name} isNeccessary={this.props.isNeccessary} />
+                <InfoName  name={this.props.name} isNeccessary={this.props.isNeccessary} />
                 {this.props.List.map((item, index) => {
                     return (
                     <label
@@ -52,7 +52,7 @@ class MulSelItem extends Component {
 }
 
 MulSelItem.propTypes={
-    Name:PropTypes.string.isRequired,
+    name:PropTypes.string.isRequired,
     List:PropTypes.array.isRequired,
     isNeccessary:PropTypes.bool,
     updateData:PropTypes.func,

@@ -24,7 +24,7 @@ class TouchStat extends Component {
             <div>
                 <p className="title2">疫情接触情况统计</p>
                 <hr className="split_line"></hr>
-                <MulSelItem Name="假期疫情接触情况排查"
+                <MulSelItem name="假期疫情接触情况排查"
                             List={['本人或亲属去过武汉或湖北其他地区',
                                    '本人或亲属去过湖北武汉以外地区',
                                    '本人或亲属途经、中转武汉或湖北其他地区',
@@ -34,7 +34,7 @@ class TouchStat extends Component {
                             Key={TH_Touch}
                             updateData={this.updateValue}
                 />
-                <MulSelItem Name="假期身体健康情况"
+                <MulSelItem name="假期身体健康情况"
                             List={['咳嗽',
                                    '发热',
                                    '乏力',
@@ -44,7 +44,7 @@ class TouchStat extends Component {
                             Key={TH_Health}
                             updateData={this.updateValue}
                 />
-                <InfoItem Name="其他接触情况说明"
+                <InfoItem name="其他接触情况说明"
                           Tip="如存在疫情接触可能或身体不适，请详细说明" 
                           isNeccessary={false} 
                           IsMultText={true} 

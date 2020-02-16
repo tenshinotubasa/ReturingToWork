@@ -10,7 +10,7 @@ class Person extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Name:"",
+            name:"",
             Depart:"",
             PhoneNum:"",
             Addr:"",
@@ -23,11 +23,11 @@ class Person extends Component {
     render() { 
         return ( 
             <div >
-                <InfoItem Name="姓名" Key={PI_Name} updateData={this.updateValue} />
-                <InfoItem Name="部门" Tip="例如：质检部" Key={PI_Depart} updateData={this.updateValue} />
-                <InfoItem Name="手机号"  Key={PI_Phone} updateData={this.updateValue} />
-                <InfoItem Name="现居住地址"  Key={PI_Addr} updateData={this.updateValue} />
-                <InfoItem Name="当前所在位置" IsMultText={true} Key={PI_Pos} updateData={this.updateValue} />
+                <InfoItem name="姓名" Key={PI_Name} updateData={this.updateValue} />
+                <InfoItem name="部门" Tip="例如：质检部" Key={PI_Depart} updateData={this.updateValue} />
+                <InfoItem name="手机号"  Key={PI_Phone} updateData={this.updateValue} />
+                <InfoItem name="现居住地址"  Key={PI_Addr} updateData={this.updateValue} />
+                <InfoItem name="当前所在位置" IsMultText={true} Key={PI_Pos} updateData={this.updateValue} />
             </div>
          );
     }
@@ -37,7 +37,7 @@ class Person extends Component {
     updateValue(name, value){
 
         if (name === PI_Name){
-            this.setState({Name:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({name:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
         }
         else if(name === PI_Depart){
             this.setState({Depart:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
@@ -55,7 +55,7 @@ class Person extends Component {
 
     /// @brief 数据有效性检验
     checkValid(){
-        return this.state.Name.length > 0 &&
+        return this.state.name.length > 0 &&
                this.state.Depart.length > 0 &&
                this.state.PhoneNum.length > 0 &&
                this.state.Addr.length > 0 &&

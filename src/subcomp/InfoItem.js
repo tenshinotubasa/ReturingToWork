@@ -13,7 +13,7 @@ class InfoItem extends Component {
     render() { 
         return ( 
             <div className="infoItem">
-                <InfoName Name={this.props.Name} isNeccessary={this.props.isNeccessary} />
+                <InfoName  name={this.props.name} isNeccessary={this.props.isNeccessary} />
                 {
                     this.props.Tip ? <div className="text-desc1">{this.props.Tip}</div> : null
                 }
@@ -34,7 +34,7 @@ class InfoItem extends Component {
 }
 
 InfoItem.propTypes={
-    Name:PropTypes.string.isRequired,
+    name:PropTypes.string.isRequired,
     Tip:PropTypes.string,
     Mark:PropTypes.string,
     isNeccessary:PropTypes.bool,

@@ -7,7 +7,7 @@ class InfoName extends Component {
     render() { 
         return ( 
             <div className="infoName">
-                <span className="text-name">{this.props.Name}</span>
+                <span className="text-name">{this.props.name}</span>
                 
                 {
                     this.props.isNeccessary ? <span className='star'><sup>*</sup></span> : null
