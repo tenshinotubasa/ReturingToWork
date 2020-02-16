@@ -10,7 +10,6 @@ const defaultState = {
 }
 
 export default (state = defaultState, action)=>{
-    console.log(action.type);
     if (action.type === ACT_UPDATE_PERSON_INFO){
         let newState = JSON.parse(JSON.stringify(state));
         newState.personalInf = action.value;
