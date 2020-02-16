@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../style.css'
 import InfoName from './InfoName'
 import PropTypes from 'prop-types'
 

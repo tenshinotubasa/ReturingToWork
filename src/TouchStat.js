@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import './style.css'
 import InfoItem from './subcomp/InfoItem'
 import MulSelItem from './subcomp/MulSelItem'
 import {TH_Touch, TH_Other, TH_Health, Touch_Hist} from './Constant'

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import './style.css';
 import InfoItem from './subcomp/InfoItem'
 import {PI_Name, PI_Depart, PI_Pos, PI_Addr, Personal_Info, PI_Phone} from './Constant'
 

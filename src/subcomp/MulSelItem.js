@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import InfoName from './InfoName'
 import PropTypes from 'prop-types'
-import '../style.css'
 
 class MulSelItem extends Component {
     constructor(props) {

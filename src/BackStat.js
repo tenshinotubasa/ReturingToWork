@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import './style.css'
 import InfoItem from './subcomp/InfoItem'
 import InfoName from './subcomp/InfoName';
 import {BI_Date, BI_Transport, BI_Via_WH, Back_Infos, BI_Other} from './Constant'
