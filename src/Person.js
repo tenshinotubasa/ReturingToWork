@@ -23,11 +23,11 @@ class Person extends Component {
     render() { 
         return ( 
             <div >
-                <InfoItem name="姓名" key={PI_Name} updateData={this.updateValue} />
-                <InfoItem name="部门" tip="例如：质检部" key={PI_Depart} updateData={this.updateValue} />
-                <InfoItem name="手机号"  key={PI_Phone} updateData={this.updateValue} />
-                <InfoItem name="现居住地址"  key={PI_Addr} updateData={this.updateValue} />
-                <InfoItem name="当前所在位置" isMultText={true} key={PI_Pos} updateData={this.updateValue} />
+                <InfoItem name="姓名" nameKey={PI_Name} updateData={this.updateValue} />
+                <InfoItem name="部门" tip="例如：质检部" nameKey={PI_Depart} updateData={this.updateValue} />
+                <InfoItem name="手机号"  nameKey={PI_Phone} updateData={this.updateValue} />
+                <InfoItem name="现居住地址"  nameKey={PI_Addr} updateData={this.updateValue} />
+                <InfoItem name="当前所在位置" isMultText={true} nameKey={PI_Pos} updateData={this.updateValue} />
             </div>
          );
     }

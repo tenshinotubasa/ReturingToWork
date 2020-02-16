@@ -21,7 +21,7 @@ class MulSelItem extends Component {
                         key={index + item} 
                     >
                         <input
-                            name={this.props.Key}
+                            name={this.props.nameKey}
                             value={item}
                             key={index + item} 
                             type="checkbox" 
@@ -46,7 +46,7 @@ class MulSelItem extends Component {
             else{
                 list.splice(pos, 1);
             }
-            this.setState({CheckedList:list}, ()=>{this.props.updateData(this.props.Key, this.state.CheckedList)})
+            this.setState({CheckedList:list}, ()=>{this.props.updateData(this.props.nameKey, this.state.CheckedList)})
         }
     }
 }
@@ -56,7 +56,7 @@ MulSelItem.propTypes={
     List:PropTypes.array.isRequired,
     isNeccessary:PropTypes.bool,
     updateData:PropTypes.func,
-    Key:PropTypes.string.isRequired
+    nameKey:PropTypes.string.isRequired
 }
 
 MulSelItem.defaultProps={

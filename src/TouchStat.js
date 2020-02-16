@@ -31,7 +31,7 @@ class TouchStat extends Component {
                                    '本人或亲属接触过来自武汉或湖北其他地区的亲友',
                                    '本人或亲属乘坐过飞机、火车等长途交通工具',
                                    '以上接触均无']}
-                            key={TH_Touch}
+                            nameKey={TH_Touch}
                             updateData={this.updateValue}
                 />
                 <MulSelItem name="假期身体健康情况"
@@ -41,14 +41,14 @@ class TouchStat extends Component {
                                    '呼吸困难',
                                    '其他不适症状',
                                    '无任何不适']}
-                            key={TH_Health}
+                            nameKey={TH_Health}
                             updateData={this.updateValue}
                 />
                 <InfoItem name="其他接触情况说明"
                           tip="如存在疫情接触可能或身体不适，请详细说明" 
                           isNeccessary={false} 
                           isMultText={true} 
-                          key={TH_Other}
+                          nameKey={TH_Other}
                           updateData={this.updateValue}
                 />
             </div>
