@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './style.css'
 import InfoItem from './subcomp/InfoItem'
 import MulSelItem from './subcomp/MulSelItem'
-import Constant from './Constant'
+import {TH_Touch, TH_Other, TH_Health, Touch_Hist} from './Constant'
 
 /**!
  * @brief 疫情接触情况组件
@@ -39,7 +39,7 @@ class TouchStat extends Component {
                                    '本人或亲属接触过来自武汉或湖北其他地区的亲友',
                                    '本人或亲属乘坐过飞机、火车等长途交通工具',
                                    '以上接触均无']}
-                            Key={Constant.TH_Touch}
+                            Key={TH_Touch}
                             updateData={this.updateValue}
                 />
                 <MulSelItem Name="假期身体健康情况"
@@ -49,14 +49,14 @@ class TouchStat extends Component {
                                    '呼吸困难',
                                    '其他不适症状',
                                    '无任何不适']}
-                            Key={Constant.TH_Health}
+                            Key={TH_Health}
                             updateData={this.updateValue}
                 />
                 <InfoItem Name="其他接触情况说明"
                           Tip="如存在疫情接触可能或身体不适，请详细说明" 
                           IsNeccessary={false} 
                           IsMultText={true} 
-                          Key={Constant.TH_Other}
+                          Key={TH_Other}
                           updateData={this.updateValue}
                 />
             </div>
@@ -67,14 +67,14 @@ class TouchStat extends Component {
     /// @param name:数据Key, value:数据值
     updateValue(name, value){
 
-        if (name === Constant.TH_Touch){
-            this.setState({Touch_Hist:value}, ()=>{this.props.setData(Constant.Touch_Hist, this.state,this.checkValid())});
+        if (name === TH_Touch){
+            this.setState({Touch_Hist:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
         }
-        else if(name === Constant.TH_Health){
-            this.setState({Health:value}, ()=>{this.props.setData(Constant.Touch_Hist, this.state,this.checkValid())});
+        else if(name === TH_Health){
+            this.setState({Health:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
         }
-        else if(name === Constant.TH_Other){
-            this.setState({Other:value}, ()=>{this.props.setData(Constant.Touch_Hist, this.state,this.checkValid())});
+        else if(name === TH_Other){
+            this.setState({Other:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
         }
     }
 

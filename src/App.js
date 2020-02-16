@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Person from './Person'
 import TouchStat from './TouchStat'
 import BackStat from './BackStat'
-import Constant from './Constant'
+import {Personal_Info, Touch_Hist, Back_Infos} from './Constant'
 import './style.css'
 
 class App extends Component {
@@ -47,13 +47,13 @@ class App extends Component {
     // @param value obj-数据值
     // @param status bool-数据状态
     setData(name, value, status){
-        if (name===Constant.Personal_Info){
+        if (name===Personal_Info){
             this.setState({Personal_Info:value, p_status:status})
         }
-        else if (name===Constant.Touch_Hist){
+        else if (name===Touch_Hist){
             this.setState({Touch_Hist:value, t_status:status})
         }
-        else if (name===Constant.Back_Info){
+        else if (name===Back_Infos){
             this.setState({Back_Info:value, b_status:status})
         }
     }

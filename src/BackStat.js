@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './style.css'
 import InfoItem from './subcomp/InfoItem'
 import InfoName from './subcomp/InfoName';
-import Constant from './Constant'
+import {BI_Date, BI_Transport, BI_Via_WH, Back_Infos, BI_Other} from './Constant'
 
 /**!
  * @brief 返程信息组件
@@ -35,25 +35,25 @@ class BackStat extends Component {
                 <hr className="split_line"></hr>
                 <div className="infoItem">
                     <InfoName Name="计划返程日期"/>
-                    <input name={Constant.BI_Date} className='edit' type="date" onChange={this.onChange}></input>
+                    <input name={BI_Date} className='edit' type="date" onChange={this.onChange}></input>
                 </div>
                 <InfoItem
                     Name="拟乘坐交通工具"
                     Tip='若自驾，请填写 "自驾" ; 如已订票，请准确到班次'
-                    Key={Constant.BI_Transport}
+                    Key={BI_Transport}
                     updateData={this.updateValue}
                 />
                 <div className="infoItem">
                     <InfoName Name="是否途径、中转武汉?"/>
-                    <label><input name={Constant.BI_Via_WH} type="radio" onChange={this.onChange} value="是"></input> 是</label>
-                    <label><input name={Constant.BI_Via_WH}  type="radio" onChange={this.onChange} value="否"></input> 否</label>
+                    <label><input name={BI_Via_WH} type="radio" onChange={this.onChange} value="是"></input> 是</label>
+                    <label><input name={BI_Via_WH}  type="radio" onChange={this.onChange} value="否"></input> 否</label>
                 </div>
                 <InfoItem 
                     Name="其他情况说明" 
                     Tip="如有其他情况或需要协助，请在下方补充" 
                     IsNeccessary={false} 
                     IsMultText={true}
-                    Key={Constant.BI_Other}
+                    Key={BI_Other}
                     updateData={this.updateValue}
                 />
             </div>
@@ -64,17 +64,17 @@ class BackStat extends Component {
     /// @param name:数据Key, value:数据值
     updateValue(name, value){
 
-        if (name === Constant.BI_Date){
-            this.setState({Back_Date:value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())});
+        if (name === BI_Date){
+            this.setState({Back_Date:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
-        else if(name === Constant.BI_Transport){
-            this.setState({Transport:value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())});
+        else if(name === BI_Transport){
+            this.setState({Transport:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
-        else if(name === Constant.BI_Via_WH){
-            this.setState({Via_WH:value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())});
+        else if(name === BI_Via_WH){
+            this.setState({Via_WH:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
-        else if(name === Constant.BI_Other){
-            this.setState({Other:value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())});
+        else if(name === BI_Other){
+            this.setState({Other:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
     }
 
@@ -88,13 +88,13 @@ class BackStat extends Component {
     
     /// @brief 数据更新
     onChange(item){
-        if (item.target.name === Constant.BI_Via_WH)
+        if (item.target.name === BI_Via_WH)
         {
-            this.setState({Via_WH:item.target.value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())})
+            this.setState({Via_WH:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
         }
-        else if (item.target.name === Constant.BI_Date)
+        else if (item.target.name === BI_Date)
         {
-            this.setState({Back_Date:item.target.value}, ()=>{this.props.setData(Constant.Back_Info, this.state,this.checkValid())})
+            this.setState({Back_Date:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
         }
     }
 }
