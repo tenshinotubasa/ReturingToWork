@@ -6,7 +6,7 @@ class MulSelItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            CheckedList:[]
+            checkedList:[]
          }
         this.onChange = this.onChange.bind(this)
     }
@@ -15,7 +15,7 @@ class MulSelItem extends Component {
         return ( 
             <div className="infoItem">
                 <InfoName  name={this.props.name} isNeccessary={this.props.isNeccessary} />
-                {this.props.List.map((item, index) => {
+                {this.props.list.map((item, index) => {
                     return (
                     <label
                         key={index + item} 
@@ -37,7 +37,7 @@ class MulSelItem extends Component {
 
     onChange(item){
         if (this.props.updateData){
-            let list = this.state.CheckedList;
+            let list = this.state.checkedList;
 
             let pos = list.indexOf(item.target.value);
             if (pos === -1){
@@ -46,14 +46,14 @@ class MulSelItem extends Component {
             else{
                 list.splice(pos, 1);
             }
-            this.setState({CheckedList:list}, ()=>{this.props.updateData(this.props.nameKey, this.state.CheckedList)})
+            this.setState({checkedList:list}, ()=>{this.props.updateData(this.props.nameKey, this.state.checkedList)})
         }
     }
 }
 
 MulSelItem.propTypes={
     name:PropTypes.string.isRequired,
-    List:PropTypes.array.isRequired,
+    list:PropTypes.array.isRequired,
     isNeccessary:PropTypes.bool,
     updateData:PropTypes.func,
     nameKey:PropTypes.string.isRequired

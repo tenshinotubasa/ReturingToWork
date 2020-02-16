@@ -11,9 +11,9 @@ class TouchStat extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            Touch_Hist:[],
-            Health:[],
-            Other:""
+            touchHist:[],
+            health:[],
+            other:""
         }
         this.updateValue = this.updateValue.bind(this)
     }
@@ -25,7 +25,7 @@ class TouchStat extends Component {
                 <p className="title2">疫情接触情况统计</p>
                 <hr className="split_line"></hr>
                 <MulSelItem name="假期疫情接触情况排查"
-                            List={['本人或亲属去过武汉或湖北其他地区',
+                            list={['本人或亲属去过武汉或湖北其他地区',
                                    '本人或亲属去过湖北武汉以外地区',
                                    '本人或亲属途经、中转武汉或湖北其他地区',
                                    '本人或亲属接触过来自武汉或湖北其他地区的亲友',
@@ -35,7 +35,7 @@ class TouchStat extends Component {
                             updateData={this.updateValue}
                 />
                 <MulSelItem name="假期身体健康情况"
-                            List={['咳嗽',
+                            list={['咳嗽',
                                    '发热',
                                    '乏力',
                                    '呼吸困难',
@@ -60,20 +60,20 @@ class TouchStat extends Component {
     updateValue(name, value){
 
         if (name === TH_Touch){
-            this.setState({Touch_Hist:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
+            this.setState({touchHist:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
         }
         else if(name === TH_Health){
-            this.setState({Health:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
+            this.setState({health:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
         }
         else if(name === TH_Other){
-            this.setState({Other:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
+            this.setState({other:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
         }
     }
 
     /// @brief 数据有效性检验
     checkValid(){
-        return this.state.Touch_Hist.length > 0 &&
-               this.state.Health.length > 0;
+        return this.state.touchHist.length > 0 &&
+               this.state.health.length > 0;
     }
 }
 
