@@ -11,10 +11,10 @@ class BackStat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Back_Date:"",
-            Transport:"",
-            Via_WH:"",
-            Other:""
+            backDate:"",
+            transport:"",
+            viaWH:"",
+            other:""
         }
         this.updateValue = this.updateValue.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -57,36 +57,36 @@ class BackStat extends Component {
     updateValue(name, value){
 
         if (name === BI_Date){
-            this.setState({Back_Date:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({backDate:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
         else if(name === BI_Transport){
-            this.setState({Transport:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({transport:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
         else if(name === BI_Via_WH){
-            this.setState({Via_WH:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({viaWH:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
         else if(name === BI_Other){
-            this.setState({Other:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({other:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
         }
     }
 
     /// @brief 数据有效性检验
     checkValid(){
-        return this.state.Back_Date.length > 0 &&
-               this.state.Transport.length > 0 &&
-               (this.state.Via_WH === "是" ||
-                this.state.Via_WH === "否");
+        return this.state.backDate.length > 0 &&
+               this.state.transport.length > 0 &&
+               (this.state.viaWH === "是" ||
+                this.state.viaWH === "否");
     }
     
     /// @brief 数据更新
     onChange(item){
         if (item.target.name === BI_Via_WH)
         {
-            this.setState({Via_WH:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
+            this.setState({viaWH:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
         }
         else if (item.target.name === BI_Date)
         {
-            this.setState({Back_Date:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
+            this.setState({backDate:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
         }
     }
 }
