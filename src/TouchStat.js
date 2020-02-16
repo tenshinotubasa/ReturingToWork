@@ -18,13 +18,6 @@ class TouchStat extends Component {
         this.updateValue = this.updateValue.bind(this)
     }
 
-    shouldComponentUpdate(nextProps, nextState){
-        if (nextState !== this.state){
-            return true;
-        }
-        return false;
-    }
-
     /// < 渲染数据
     render() { 
         return ( 

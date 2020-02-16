@@ -20,13 +20,6 @@ class BackStat extends Component {
         this.onChange = this.onChange.bind(this)
     }
     
-    shouldComponentUpdate(nextProps, nextState){
-        if (nextState !== this.state){
-            return true;
-        }
-        return false;
-    }
-
     render() { 
         return ( 
             <div>

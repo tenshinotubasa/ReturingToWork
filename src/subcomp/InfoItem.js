@@ -10,20 +10,6 @@ class InfoItem extends Component {
         this.onChange = this.onChange.bind(this);
     }
     
-    shouldComponentUpdate(nextProps, nextState){
-        if (nextProps.Name !== this.props.Name ||
-            nextProps.Tip !== this.props.Tip ||
-            nextProps.Mark !== this.props.Mark ||
-            nextProps.IsNeccessary !== this.props.IsNeccessary ||
-            nextProps.IsMultText !== this.props.IsMultText ||
-            nextProps.updateData !== this.props.updateData ||
-            nextProps.Key !== this.props.Key ||
-            nextState.Value !== this.state.Value){
-            return true;
-        }
-        return false;
-    }
-
     render() { 
         return ( 
             <div className="infoItem">

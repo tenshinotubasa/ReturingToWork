@@ -4,10 +4,6 @@ import PropTypes from 'prop-types'
 class InfoName extends Component {
     state = {  }
     
-    shouldComponentUpdate(nextProps, nextState){
-        return false;
-    }
-
     render() { 
         return ( 
             <div className="infoName">
