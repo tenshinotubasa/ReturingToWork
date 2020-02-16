@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import InfoItem from './subcomp/InfoItem'
 import InfoName from './subcomp/InfoName';
-import {BI_Date, BI_Transport, BI_Via_WH, Back_Infos, BI_Other} from './Constant'
+import {BI_Date, BI_Transport, BI_Via_WH, BI_Other} from './Constant'
+import {updateBackInfo} from './action/actionCreators'
+import store from './store/store'
 
 /**!
  * @brief 返程信息组件
@@ -16,8 +17,9 @@ class BackStat extends Component {
             viaWH:"",
             other:""
         }
-        this.updateValue = this.updateValue.bind(this)
-        this.onChange = this.onChange.bind(this)
+        this.updateValue = this.updateValue.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.checkValid = this.checkValid.bind(this);
     }
     
     render() { 
@@ -57,16 +59,16 @@ class BackStat extends Component {
     updateValue(name, value){
 
         if (name === BI_Date){
-            this.setState({backDate:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({backDate:value}, ()=>{store.dispatch(updateBackInfo(this.state, this.checkValid()))});
         }
         else if(name === BI_Transport){
-            this.setState({transport:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({transport:value}, ()=>{store.dispatch(updateBackInfo(this.state, this.checkValid()))});
         }
         else if(name === BI_Via_WH){
-            this.setState({viaWH:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({viaWH:value}, ()=>{store.dispatch(updateBackInfo(this.state, this.checkValid()))});
         }
         else if(name === BI_Other){
-            this.setState({other:value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())});
+            this.setState({other:value}, ()=>{store.dispatch(updateBackInfo(this.state, this.checkValid()))});
         }
     }
 
@@ -82,17 +84,13 @@ class BackStat extends Component {
     onChange(item){
         if (item.target.name === BI_Via_WH)
         {
-            this.setState({viaWH:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
+            this.setState({viaWH:item.target.value}, ()=>{store.dispatch(updateBackInfo(this.state, this.checkValid()))})
         }
         else if (item.target.name === BI_Date)
         {
-            this.setState({backDate:item.target.value}, ()=>{this.props.setData(Back_Infos, this.state,this.checkValid())})
+            this.setState({backDate:item.target.value}, ()=>{store.dispatch(updateBackInfo(this.state, this.checkValid()))})
         }
     }
 }
  
-BackStat.propTypes = {
-    setData:PropTypes.func.isRequired
-}
-
 export default BackStat;

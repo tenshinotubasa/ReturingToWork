@@ -1,11 +1,6 @@
 /*
     @brief 常量定义
 */
-export const Personal_Info = 'Personal_Info';
-
-export const Touch_Hist = 'Touch_Hist';
-export const Back_Infos = 'Back_Info';
-
 // 用户信息标签
 export const PI_Name = "name";
 export const PI_Depart = "department";

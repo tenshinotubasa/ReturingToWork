@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import InfoItem from './subcomp/InfoItem'
 import MulSelItem from './subcomp/MulSelItem'
-import {TH_Touch, TH_Other, TH_Health, Touch_Hist} from './Constant'
+import {TH_Touch, TH_Other, TH_Health} from './Constant'
+import store from './store/store'
+import {updateTouchHist} from './action/actionCreators'
 
 /**!
  * @brief 疫情接触情况组件
@@ -15,7 +16,8 @@ class TouchStat extends Component {
             health:[],
             other:""
         }
-        this.updateValue = this.updateValue.bind(this)
+        this.updateValue = this.updateValue.bind(this);
+        this.checkValid = this.checkValid.bind(this);
     }
 
     /// < 渲染数据
@@ -60,13 +62,13 @@ class TouchStat extends Component {
     updateValue(name, value){
 
         if (name === TH_Touch){
-            this.setState({touchHist:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
+            this.setState({touchHist:value}, ()=>{store.dispatch(updateTouchHist(this.state, this.checkValid()))});
         }
         else if(name === TH_Health){
-            this.setState({health:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
+            this.setState({health:value}, ()=>{store.dispatch(updateTouchHist(this.state, this.checkValid()))});
         }
         else if(name === TH_Other){
-            this.setState({other:value}, ()=>{this.props.setData(Touch_Hist, this.state,this.checkValid())});
+            this.setState({other:value}, ()=>{store.dispatch(updateTouchHist(this.state, this.checkValid()))});
         }
     }
 
@@ -75,10 +77,6 @@ class TouchStat extends Component {
         return this.state.touchHist.length > 0 &&
                this.state.health.length > 0;
     }
-}
-
-TouchStat.propTypes = {
-    setData:PropTypes.func.isRequired
 }
 
 export default TouchStat;

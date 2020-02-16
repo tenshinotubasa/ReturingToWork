@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import InfoItem from './subcomp/InfoItem'
-import {PI_Name, PI_Depart, PI_Pos, PI_Addr, Personal_Info, PI_Phone} from './Constant'
+import {PI_Name, PI_Depart, PI_Pos, PI_Addr, PI_Phone} from './Constant'
+import {updatePersonalInfo} from './action/actionCreators'
+import store from './store/store'
 
 /*!
 * @brief 用户信息组件
@@ -17,6 +18,7 @@ class Person extends Component {
             pos:""
         };
         this.updateValue = this.updateValue.bind(this);
+        this.checkValid = this.checkValid.bind(this)
     }
 
     /// < 渲染数据
@@ -37,19 +39,19 @@ class Person extends Component {
     updateValue(name, value){
 
         if (name === PI_Name){
-            this.setState({name:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({name:value}, ()=>{store.dispatch(updatePersonalInfo(this.state, this.checkValid()))});
         }
         else if(name === PI_Depart){
-            this.setState({depart:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({depart:value}, ()=>{store.dispatch(updatePersonalInfo(this.state, this.checkValid()))});
         }
         else if(name === PI_Phone){
-            this.setState({phoneNum:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({phoneNum:value}, ()=>{store.dispatch(updatePersonalInfo(this.state, this.checkValid()))});
         }
         else if(name === PI_Addr){
-            this.setState({addr:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({addr:value}, ()=>{store.dispatch(updatePersonalInfo(this.state, this.checkValid()))});
         }
         else if(name === PI_Pos){
-            this.setState({pos:value}, ()=>{this.props.setData(Personal_Info, this.state,this.checkValid())});
+            this.setState({pos:value}, ()=>{store.dispatch(updatePersonalInfo(this.state, this.checkValid()))});
         }
     }
 
@@ -61,10 +63,6 @@ class Person extends Component {
                this.state.addr.length > 0 &&
                this.state.pos.length > 0;
     }
-}
-
-Person.propTypes = {
-    setData:PropTypes.func.isRequired
 }
 
 export default Person;
