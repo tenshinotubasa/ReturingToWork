@@ -13,7 +13,7 @@ class InfoItem extends Component {
     render() { 
         return ( 
             <div className="infoItem">
-                <InfoName Name={this.props.Name} IsNeccessary={this.props.IsNeccessary} />
+                <InfoName Name={this.props.Name} isNeccessary={this.props.isNeccessary} />
                 {
                     this.props.Tip ? <div className="text-desc1">{this.props.Tip}</div> : null
                 }
@@ -37,7 +37,7 @@ InfoItem.propTypes={
     Name:PropTypes.string.isRequired,
     Tip:PropTypes.string,
     Mark:PropTypes.string,
-    IsNeccessary:PropTypes.bool,
+    isNeccessary:PropTypes.bool,
     IsMultText:PropTypes.bool,
     updateData:PropTypes.func,
     Key:PropTypes.string.isRequired
@@ -45,7 +45,7 @@ InfoItem.propTypes={
 
 InfoItem.defaultProps={
     Mark:'请输入',
-    IsNeccessary:true,
+    isNeccessary:true,
     IsMultText:false
 }
 

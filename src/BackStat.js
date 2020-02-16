@@ -43,7 +43,7 @@ class BackStat extends Component {
                 <InfoItem 
                     Name="其他情况说明" 
                     Tip="如有其他情况或需要协助，请在下方补充" 
-                    IsNeccessary={false} 
+                    isNeccessary={false} 
                     IsMultText={true}
                     Key={BI_Other}
                     updateData={this.updateValue}
